@@ -75,27 +75,46 @@ const getRunTime=(minutes)=>{
   }
 
 
-// useEffect(() => {
-  const getFormSubmit = () =>{
-  axios({
-    url: `https://api.sunrise-sunset.org/json`,
-    method: `GET`,
-    dataResponse: `json`,
-    params: {
-      lat: userLatitude,
-      lng: userLongitude,
-      date: selectedDate,
-      formatted:0
-    }
-  })
-  .then(jsonData => {
-    console.log(jsonData)
+// // useEffect(() => {
+//   const getFormSubmit = () =>{
+//   axios({
+//     url: `https://api.sunrise-sunset.org/json`,
+//     method: `GET`,
+//     dataResponse: `json`,
+//     params: {
+//       lat: userLatitude,
+//       lng: userLongitude,
+//       date: selectedDate,
+//       formatted:0
+//     }
+//   })
+//   .then(jsonData => {
+//     console.log(jsonData)
 
-    setSunData(jsonData.data.results);
+//     setSunData(jsonData.data.results);
     
-  })
-  }
-// }, [isSubmit] );
+//   })
+//   }
+// // }, [isSubmit] );
+
+useEffect(() => {
+   axios({
+     url: `https://api.sunrise-sunset.org/json`,
+     method: `GET`,
+     dataResponse: `json`,
+     params: {
+       lat: userLatitude,
+       lng: userLongitude,
+       date: selectedDate,
+     }
+   })
+   .then(jsonData => {
+     console.log(jsonData)
+
+     setSunData(jsonData.data.results);
+
+   })
+ }, [] );
 
 useEffect(()=>{
   let date = new Date();
@@ -122,8 +141,10 @@ useEffect(()=>{
       </div>
 
       <h1 className="animate pop">Sun Run</h1>
+
+      {/* removed: getSubmit={getFormSubmit} */}
       
-      <Form getLong={getLongitude} getLat={getLatitude} getDate={getDate} date={selectedDate} sunOption={isSunrise} updateSunOption={getSunOption} todaysDate={todaysDate} getSubmit={getFormSubmit} getRun = {getRunTime} run={runTime} setLocationBySearch={ () => handleSelectChange()}/>
+      <Form getLong={getLongitude} getLat={getLatitude} getDate={getDate} date={selectedDate} sunOption={isSunrise} updateSunOption={getSunOption} todaysDate={todaysDate}  getRun = {getRunTime} run={runTime} setLocationBySearch={ () => handleSelectChange()}/>
       <Results sunInformation={sunData} sunOption={isSunrise} userRunTime={runTime} />
       <Footer />
     </div>

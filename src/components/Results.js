@@ -8,6 +8,10 @@ const Results = (props) => {
     // console.log(sunriseDateObject);
     const sunsetDateObject = new Date(sunInformation.sunset);
     console.log(sunsetDateObject.toLocaleString())
+    console.log(sunriseDateObject)
+    console.log(sunInformation)
+    // fixed: suninformation object no longer empty, but will not render to the page
+    console.log(sunInformation.sunrise)
 
 
     // let hours = sunsetDateObject.getHours();
@@ -30,8 +34,8 @@ const Results = (props) => {
     return(
         <>
           {
-          sunOption?
-            <p>{sunInformation.sunrise}</p>
+          sunOption
+          ?<p>{sunInformation.sunrise}</p>
           :<>
             {/* <p>{`${userRunTime} minutes`}</p>
             <p>{`Leave at ${whatTimeToLeave} to get home before the sunset`}</p> */}
