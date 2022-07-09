@@ -33,11 +33,11 @@ const Results = (props) => {
           sunOption?
             <p>{sunInformation.sunrise}</p>
           :<>
-            <p>{sunInformation.sunset}</p> 
-            <p>{`${userRunTime} minutes`}</p>
+            {/* <p>{`${userRunTime} minutes`}</p>
+            <p>{`Leave at ${whatTimeToLeave} to get home before the sunset`}</p> */}
+            <p>{`For a ${userRunTime} minute run, leave at ${whatTimeToLeave} to get home before sunset`}</p>
           </>
           }
-          <p>Leave at {whatTimeToLeave} to get home before the sunset</p>
         </>
     )
 }
