@@ -55,6 +55,24 @@ const getRunTime=(minutes)=>{
   console.log("Users run is", minutes);
 }
 
+  // // HANDLERS moved from Location
+  // const handleSearchChange = (e) => {
+  //   console.log(e.target.value);
+  //   setSearchTerm(e.target.value)
+  // }
+
+  const handleSelectChange = (e) => {
+    console.log(e.target.value);
+    // setSelectValue(e.target.value);
+    //  Right now, the long/lat are being saved as an array in state, but if this works we can send them up to App individually:
+
+    // props.setLatitudeFunctionFromProps(e.target.value[0])
+    // props.setLongitudeFunctionFromProps(e.target.value[1])
+
+    // this should not be updating our user lat and long to the values provided by the API call when they search by city name
+    setUserLatitude(e.target.value[0])
+    setUserLongitude(e.target.value[1])
+  }
 
 
 // useEffect(() => {
@@ -105,7 +123,7 @@ useEffect(()=>{
 
       <h1 className="animate pop">Sun Run</h1>
       
-      <Form getLong={getLongitude} getLat={getLatitude} getDate={getDate} date={selectedDate} sunOption={isSunrise} updateSunOption={getSunOption} todaysDate={todaysDate} getSubmit={getFormSubmit} getRun = {getRunTime} run={runTime}/>
+      <Form getLong={getLongitude} getLat={getLatitude} getDate={getDate} date={selectedDate} sunOption={isSunrise} updateSunOption={getSunOption} todaysDate={todaysDate} getSubmit={getFormSubmit} getRun = {getRunTime} run={runTime} setLocationBySearch={ () => handleSelectChange()}/>
       <Results sunInformation={sunData} sunOption={isSunrise} userRunTime={runTime} />
       <Footer />
     </div>
