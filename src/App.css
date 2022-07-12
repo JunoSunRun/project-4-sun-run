@@ -5,3 +5,449 @@ html { box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit}
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
+
+/* FONT STYLES */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Quicksand:wght@600;700&family=Sarina&display=swap');
+
+h1 {
+    font-size: 6vw;
+    font-family: 'Sarina', cursive;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 0;
+    color: #FFFE93;
+    text-shadow: 2px 5px #D66761;
+    position: absolute;
+}
+
+/* BACKGROUND ANIMATION STYLES */
+
+html {
+    background-image: linear-gradient(to right, #193560, #D091BC, #94DFFE, #94DFFE, #50add5, #193560);
+    background-size: 400% 400%;
+    background-attachment: fixed;
+    background-repeat: repeat;
+    animation: gradient 45s ease infinite;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+
+header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* MAIN */
+
+main {
+    display: flex;
+    /* min-height: 100vh; */
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* FORM */
+
+button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #B8E070;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 3px 3px gray;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 45%;
+}
+
+.card {
+    background: rgba(245, 245, 245, 0.748);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    padding: 40px;
+    min-width: 100%;
+    z-index: 2;
+}
+
+.card>* {
+    color: black;
+}
+
+section.interface {
+    width: 100%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.locationChoices {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 5px;
+}
+
+.locationChoices label {
+    text-align: center;
+    width: 50%;
+    padding: 15px;
+    border: 2px solid orange;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+fieldset {
+    border: none;
+}
+
+input[type='radio']:checked +label {
+    background: orange;
+    color: white;
+}
+
+.interface form {
+    width: 100%;
+}
+
+.locationForm {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type='text'], 
+input[type='date'],
+input[type='number'],
+select {
+    background: white;
+    border:none;
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+
+.dateSunForm {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.dateSunForm label {
+    width: 100%;
+    display: block;
+    padding: 10px;
+    border-bottom: 2px solid orange;
+}
+
+.sun {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+
+}
+
+.sun label {
+    display: inline-block;
+    width: 50%;
+    border: 3px solid orange;
+    border-radius: 15px;
+    margin: 20px 0;
+    cursor: pointer
+}
+.sun img {
+    display: block;
+    width: 100%;
+    height: 70px;
+}
+
+/*SUN/RESULTS  */
+
+.results {
+    width: 100%;
+    min-height:60%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.displayDate {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 5vw;
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 1400px;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* FOOTER STYLES */
+
+footer {
+    font-size: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(30, 30, 30);
+    /* background-color: #B8E070; */
+    /* position: absolute; */
+    /* padding: 0px 10px 0px 10px; */
+    /* bottom: 0; */
+    /* width: 100%;
+    height: 35px;
+    width: 50px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute; */
+    /* top: 30px;
+    left: -20%; */
+}
+
+a {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+footer a {
+    color: rgb(163, 68, 207);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* **************ANIMATIONS****************** */
+
+/* LOADER STYLES */
+
+.spinner {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    background-attachment: fixed;
+    background-repeat: repeat;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* H1 ANIMATION STYLES */
+
+.animate {
+    animation-duration: 0.5s;
+    animation-name: animate-fade;
+    animation-delay: 5s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes animate-fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.animate.pop {
+    animation-name: animate-pop;
+    animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
+}
+
+@keyframes animate-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.5, 0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* CLOUD ANIMATION STYLES */
+
+.clouds {
+    position: relative;
+    width: max-content;
+}
+
+.cloud {
+    width: 50px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 30px;
+    left: -20%;
+    animation-name: cloud;
+    animation-duration: 100s;
+    animation-iteration-count: infinite;
+    z-index: -1;
+}
+
+
+.cloud::before {
+    content: '';
+    width: 35px;
+    height: 30px;
+    background-color: #fff;
+    margin-left: -20px;
+    margin-top: 10px;
+    display: block;
+    border-radius: 50%;
+}
+
+.cloud::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    position: absolute;
+    right: -10px;
+    top: 17px;
+    border-radius: 50%;
+}
+
+.cloud.a {
+    top: 150px;
+    animation-duration: 75s;
+}
+
+.cloud.b {
+    top: 100px;
+    left: -15%;
+    animation-duration: 55s;
+}
+
+.cloud.c {
+    top: 180px;
+    left: -10%;
+    animation-duration: 65s;
+    z-index: -3;
+}
+
+@keyframes cloud {
+from {
+        left: -150px;
+    }
+
+    to {
+        left: calc(100vw + 150px);
+    }
+}
+
+
+/* SUN */
+
+.sunAnimation {
+	width: 40vw;
+	height: 40vw;
+	background-color: #FFDE00;
+	border-radius: 50%;
+	box-shadow:
+		0 0 0 20px #FFDE0080,
+		0 0 0 40px #FFDE0040,
+		0 0 0 60px #FFDE0020,
+		0 0 0 80px #FFDE0010,
+		0 0 0 100px #FFDE0000,
+		0 0 40px 100px #FFDE0010;
+	animation:
+		sunrise 2s infinite linear forwards,
+		rays 2s 2s infinite linear;
+}
+
+@keyframes sunrise {
+	0% {
+		box-shadow: none;
+	}
+}
+
+@keyframes rays {
+	0% {
+		box-shadow: 
+		0 0 0 0 #FFDE0080,
+		0 0 0 20px #FFDE0080,
+		0 0 0 40px #FFDE0040,
+		0 0 0 60px #FFDE0020,
+		0 0 0 80px #FFDE0010,
+		0 0 40px 100px #FFDE0010;
+	}
+	100% {
+		box-shadow: 
+		0 0 0 20px #FFDE0080,
+		0 0 0 40px #FFDE0040,
+		0 0 0 60px #FFDE0020,
+		0 0 0 80px #FFDE0010,
+		0 0 0 100px #FFDE0000,
+		0 0 40px 100px #FFDE0010;
+	}
+}
