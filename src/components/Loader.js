@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function Loader() {
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
     const [loading, setloading] = useState(undefined);
     const [completed, setcompleted] = useState(undefined);
 
@@ -10,7 +10,8 @@ function Loader() {
             fetch("https://jsonplaceholder.typicode.com/posts")
                 .then((response) => response.json())
                 .then((json) => {
-                    setData(json);
+                    // setData(json);
+                    // console.log(data)
                     setloading(true);
                     setTimeout(() => {
                         setcompleted(true);
