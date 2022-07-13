@@ -3,6 +3,7 @@ import axios from 'axios';
 
 // COMPONENT IMPORTS //
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Form from './components/Form';
 import Results from './components/Results';
 import Loader from './components/Loader';
@@ -21,6 +22,7 @@ const [selectedDate, setSelectedDate] = useState("")
 const [isSunrise, setIsSunrise] = useState('')
 const [todaysDate, setTodaysDate] = useState("");
 const [runTime, setRunTime]= useState(0);
+const [isLoaderDone, setIsLoaderDone] = useState(false);
 
 
 // FUNCTIONS
@@ -33,6 +35,8 @@ const getDate = (date) => setSelectedDate(date)
 const getSunOption = (option) => setIsSunrise(option)
 
 const getRunTime=(minutes)=> setRunTime(minutes);
+
+const loaderFinished = ()=>setIsLoaderDone(true);
   
 const getFormSubmit = () =>{
   axios({
@@ -66,9 +70,20 @@ useEffect(()=>{
 
   return (
     <>
-
-      <Loader />
+    
+    {
+      !isLoaderDone?
+      <>
+      <Loader getApp={loaderFinished} />
+     
+         {/* <Header /> */}
+   
+      </>
+  
+      :
+      <> 
       <div className="wrapper">
+
         <Animations />
         <main>
           <div className="left">
@@ -99,7 +114,13 @@ useEffect(()=>{
           </div>
         </main>
       </div>
+      <Footer />
+     </>
+      
+}
+
     </>
+      
   );
 }
 

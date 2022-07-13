@@ -7,6 +7,7 @@ const Animations = () => {
           <div className="cloud a"></div>
           <div className="cloud b"></div>
           <div className="cloud c"></div>
+          <div className="cloud d"></div>
       </div>
     )
 }

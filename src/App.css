@@ -14,7 +14,7 @@ h1 {
     font-size: 6vw;
     font-family: 'Sarina', cursive;
     text-align: center;
-    margin-top: 80px;
+    margin: 0;
     margin-bottom: 0;
     color: #FFFE93;
     text-shadow: 2px 5px #D66761;
@@ -34,10 +34,25 @@ html {
     overflow-x: hidden;
 }
 
+body {
+    font-family: 'Quicksand', sans-serif;
+    color: #3D3D3D;
+    
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 1400px;
+    position: relative;
+    margin: 0 auto;
+}
+
 /* HEADER */
 
 header {
-    position: relative;
+    position: absolute;
+    z-index: 10;
+    top: 0;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -47,7 +62,7 @@ header {
 
 main {
     display: flex;
-    /* min-height: 100vh; */
+    min-height: 100vh;
     justify-content: space-around;
     align-items: center;
 }
@@ -65,6 +80,11 @@ button {
     box-shadow: 3px 3px gray;
     cursor: pointer;
     width: 100%;
+    transition: color .2s;
+}
+
+button:hover {
+    color: white;
 }
 
 button:active {
@@ -79,6 +99,16 @@ button:active {
     min-width: 45%;
 }
 
+.right {
+    position: relative;
+    min-width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
 .card {
     background: rgba(245, 245, 245, 0.748);
     display: flex;
@@ -90,9 +120,9 @@ button:active {
     z-index: 2;
 }
 
-.card>* {
+/* .card>* {
     color: black;
-}
+} */
 
 section.interface {
     width: 100%;
@@ -131,6 +161,14 @@ input[type='radio']:checked +label {
     color: white;
 }
 
+label.buttonLabel {
+    transition: background-color .3s;
+}
+
+label.buttonLabel:hover {
+    background: #fec65d;
+}
+
 .interface form {
     width: 100%;
 }
@@ -144,12 +182,14 @@ input[type='text'],
 input[type='date'],
 input[type='number'],
 select {
+    font-family: 'Quicksand', sans-serif;
     background: white;
     border:none;
     border-radius: 5px;
     text-align: center;
     padding: 15px;
     margin: 10px 0;
+    cursor: pointer;
 }
 
 
@@ -159,11 +199,13 @@ select {
     align-items: stretch;
 }
 
-.dateSunForm label {
+.interface label,
+.label {
     width: 100%;
     display: block;
     padding: 10px;
     border-bottom: 2px solid orange;
+    margin: 0;
 }
 
 .sun {
@@ -189,6 +231,9 @@ select {
 
 /*SUN/RESULTS  */
 
+
+
+
 .results {
     width: 100%;
     min-height:60%;
@@ -206,12 +251,13 @@ select {
     font-size: 5vw;
 }
 
-.wrapper {
-    width: 90%;
-    max-width: 1400px;
-    position: relative;
-    margin: 0 auto;
+.instructions {
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 10px;
 }
+
+
 
 /* FOOTER STYLES */
 
@@ -222,6 +268,7 @@ footer {
     justify-content: center;
     align-items: center;
     color: rgb(30, 30, 30);
+    margin:15px 0 10px 0;
     /* background-color: #B8E070; */
     /* position: absolute; */
     /* padding: 0px 10px 0px 10px; */
@@ -235,12 +282,65 @@ footer {
     position: absolute; */
     /* top: 30px;
     left: -20%; */
+
+    /* height: 200px;
+    background: url(../public/cloud2.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; */
 }
 
-a {
+.footer-cloud p {
+    position: relative;
+    z-index: 10;
+}
+
+.footer-cloud {
+    background: white;
+    width: 120px;
+    height: 88px;
+    border-radius: 50%;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* animation: footerFloat 5s infinite forwards; */
+}
+
+.footer-cloud::before {
+    content:'';
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    left: -40px;;
+    top: 25px;
+    /* border: 1px solid red; */
+}
+
+.footer-cloud::after {
+    content:'';
+    display: block;
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: white;
+    right: -30px;;
+    top: 30px;
+    /* border: 1px solid red; */
+}
+
+
+
+/* a {
     margin-left: 5px;
     margin-right: 5px;
-}
+} */
 
 footer a {
     color: rgb(163, 68, 207);
@@ -265,7 +365,8 @@ footer a {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    /* Below allows the loader to be the only thing on screen during the loading animation */
+    z-index: 100;
 }
 
 @keyframes gradient {
@@ -287,7 +388,6 @@ footer a {
 .animate {
     animation-duration: 0.5s;
     animation-name: animate-fade;
-    animation-delay: 5s;
     animation-fill-mode: backwards;
 }
 
@@ -395,6 +495,14 @@ footer a {
     z-index: -3;
 }
 
+.cloud.d {
+    top: 400px;
+    left: -30%;
+    animation-duration: 45s;
+    z-index: -3;
+    transform: scale(1.5);
+}
+
 @keyframes cloud {
 from {
         left: -150px;
@@ -406,11 +514,24 @@ from {
 }
 
 
+@keyframes footerFloat {
+    0% {
+        top: 0
+    }
+    50% {
+        top: 10px;
+    }
+    100% {
+        top: 0
+    }
+}
+
 /* SUN */
 
 .sunAnimation {
-	width: 40vw;
-	height: 40vw;
+    position: relative;
+	width: 30vw;
+	height: 30vw;
 	background-color: #FFDE00;
 	border-radius: 50%;
 	box-shadow:
@@ -450,4 +571,91 @@ from {
 		0 0 0 100px #FFDE0000,
 		0 0 40px 100px #FFDE0010;
 	}
+}
+
+@media (max-width: 1000px){
+    header{
+        top:-112px;
+    }
+    h1{
+        font-size:10vw;
+        line-height:calc(100px - 2vw);
+    }
+
+
+
+
+}
+
+@media (max-width: 809px) {
+    main {
+        flex-direction: column-reverse;
+    }
+
+    header{
+        top:60px;
+    }
+
+    
+
+    h1 {
+        font-size: 12vw;
+    }
+
+    .right, .left {
+        /* let the divs take up 100% of the width (minus the wrapper) */
+        width: 100%;
+    }
+    
+    .left {
+        /* bring the form down from the top of the page */
+        margin-top: 50px;
+    }
+
+    .right {
+        /* setting position to static allows the absolutely positioned header to be relative to the page, instead of the .right div */
+        position: static;
+        margin-top:15%;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    .sunAnimation {
+        /* needs work - where should the sun be? */
+        width: 40vw;
+        height: 40vw;
+    }
+
+    .footer-cloud{
+        /* position:fixed; */
+        bottom:0;
+    }
+}
+@media (max-width: 660px){
+    h1{
+       font-size:15vw;
+    }
+    .sunAnimation{
+        width:65vw;
+        height:65vw;
+    }
+}
+
+@media (max-width: 440px){
+    .results p{
+        font-size:1.1rem;
+    }
+}
+
+@media (max-width: 350px){
+    header{
+        top:44px
+    }
+
+    .sunAnimation{
+        width:68vw;
+        height:68vw;
+    }
 }

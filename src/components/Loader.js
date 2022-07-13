@@ -1,24 +1,41 @@
 import React, { useEffect, useState } from "react";
 
-function Loader() {
+function Loader(props) {
     // const [data, setData] = useState([]);
-    const [loading, setloading] = useState(undefined);
-    const [completed, setcompleted] = useState(undefined);
+    const [loading, setLoading] = useState(undefined);
+    const [completed, setCompleted] = useState(undefined);
 
-    useEffect(() => {
-        setTimeout(() => {
-            fetch("https://jsonplaceholder.typicode.com/posts")
-                .then((response) => response.json())
-                .then((json) => {
-                    // setData(json);
-                    // console.log(data)
-                    setloading(true);
-                    setTimeout(() => {
-                        setcompleted(true);
-                    }, 3000);
-                });
-        }, 4000);
-    }, []);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         fetch("https://jsonplaceholder.typicode.com/posts")
+    //             .then((response) => response.json())
+    //             .then((json) => {
+    //                 // setData(json);
+    //                 // console.log(data)
+    //                 setloading(true);
+    //                 setTimeout(() => {
+    //                     setcompleted(true);
+    //                 }, 3000);
+    //             });
+    //     }, 4000);
+    // }, []);
+
+
+
+    // USEEFFECT for pageload?
+
+    useEffect(()=> {
+        
+        setTimeout(()=> {
+            setLoading(true);
+            setTimeout(()=>{
+                setCompleted(true);
+            }, 3000)
+            props.getApp();
+        }, 4000)
+        
+        
+    }, [])
 
     return (
         <>

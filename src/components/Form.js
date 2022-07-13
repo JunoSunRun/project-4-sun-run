@@ -47,6 +47,7 @@ const Form = (props) => {
     
     <>
       <section className="interface">
+        <p className='label'>Choose your location: {userLatitude ? '✓' :null}</p>
           <div className='locationChoices'>
             <input className="sr-only"
               type="radio"
@@ -56,7 +57,7 @@ const Form = (props) => {
               value={checked}
               onChange={(e)=>{setChecked(e.target.name)}}
             />
-            <label htmlFor="gps">📍Use GPS</label>
+            <label className='buttonLabel' htmlFor="gps">📍Use GPS</label>
 
             <input className="sr-only"
               type="radio"
@@ -66,7 +67,7 @@ const Form = (props) => {
               value={checked}
               onChange={(e)=>{setChecked(e.target.name)}}
             />
-            <label htmlFor="search">🔍 Search</label>
+            <label className='buttonLabel' htmlFor="search">🔍 Search</label>
           </div>
 
         {/* Conditionally rendering either the gps button or searchbar by checking the value of 'checked' (state) */}
@@ -77,24 +78,24 @@ const Form = (props) => {
         }
         
         <form className='dateSunForm' onSubmit={handleSubmit}>
-          <label htmlFor="date">📆 Select a date:</label>
+          <label htmlFor="date">📆 Select a date:  {date ? '✓' :null}</label>
           <input min ={todaysDate} type="date" id="date" name="date" value={date} onChange={handleChange} />
 
-          <label>Run at sunrise or before sunset?</label>
+          <p className='label'>Run at sunrise or before sunset? {sunOption ? '✓' :null}</p>
 
           <fieldset className="sun" onChange={handleSunChange} value={sunOption}>
             
               <input className="sr-only" type="radio" id="sunrise" name="sunOption" value="sunrise"/>
-              <label htmlFor="sunrise"><img className="sunriseImage" src="/sunrise1.svg" alt="sunrise icon"></img></label>
+              <label className='buttonLabel' htmlFor="sunrise"><img className="sunriseImage" src="/sunrise1.svg" alt="sunrise icon"></img></label>
 
               <input className="sr-only" type="radio" id="sunset" name="sunOption" value="sunset"/>
-              <label htmlFor="sunset"><img className="sunsetImage" src="/sunset1.svg" alt="sunset icon"></img></label>
+              <label className='buttonLabel' htmlFor="sunset"><img className="sunsetImage" src="/sunset1.svg" alt="sunset icon"></img></label>
           </fieldset>
 
               {
                 sunOption === 'sunset' 
                 ?<>
-                  <label htmlFor="runTime">Length of Run</label>
+                  <label htmlFor="runTime">Length of Run {run ? '✓' :null}</label>
                   <input onChange={handleRunTime} type="number" name="runTime" min="0"  id="runTime" value={run} step="5"/>
                 </>
                 :null

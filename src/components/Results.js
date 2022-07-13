@@ -54,7 +54,7 @@ const Results = (props) => {
               <p>You don't have enough time for this run, try another day or a shorter runtime</p>
       
             // Final check: do nothing 
-            : null
+            : <p className="instructions">Set your location, a run date, and whether you'd like to run at sunrise or before the sun sets!</p>
       
           }
         </div>

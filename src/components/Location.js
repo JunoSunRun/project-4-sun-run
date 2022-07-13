@@ -40,7 +40,7 @@ const Location = (props) => {
 
   return (
     <form className='locationForm' onSubmit={makeLocationCall}>
-      <input type="text" onChange={handleSearchChange} value={searchTerm} placeholder='search by city, postal code' required/>
+      <input type="text" onChange={handleSearchChange} value={searchTerm} placeholder='enter your city' required/>
       <button>Search</button>
       {/* Line 52 - ternary to hide the dropdown menu if the API array has nothing in it  */}
       {
@@ -52,8 +52,9 @@ const Location = (props) => {
             return (
               <option
                 key={object.latitude}
-// ! look into how this is converting into a string
-                value={[object.latitude, object.longitude]}
+// ! look into how this is converting into a string (Done - creating an actual string for value instead of an array that magically turns into a string)
+                // value={[object.latitude, object.longitude]}
+                value={`${object.latitude}, ${object.longitude}`}
                 id={object.label}
               >
                 {object.label}

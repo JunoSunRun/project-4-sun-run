@@ -1,6 +1,10 @@
 const Footer = () => {
     return(
-        <footer>Created at <a href="https://www.junocollege.com/">Juno College</a> 2022</footer>
+        <footer>
+            <div className="footer-cloud">
+                <p>Created at <a href="https://www.junocollege.com/" target="_blank" rel="noreferrer">Juno College</a></p>
+            </div>
+        </footer>
     )
 }
 
