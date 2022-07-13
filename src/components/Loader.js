@@ -35,7 +35,7 @@ function Loader(props) {
         }, 4000)
         
         
-    }, [])
+    }, [props])
 
     return (
         <>
