@@ -452,6 +452,7 @@ a:hover {
 .cloud.a {
     top: 150px;
     animation-duration: 75s;
+    transform: scale(1.8);
 }
 
 .cloud.b {
@@ -564,7 +565,7 @@ from {
     }
 
     header{
-        top:60px;
+        top:30px;
     }
 
     h1 {
@@ -615,7 +616,7 @@ from {
 
 @media (max-width: 350px){
     header{
-        top:44px
+        top:15px
     }
 
     .sunAnimation{
