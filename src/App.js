@@ -51,7 +51,6 @@ const getFormSubmit = () =>{
     }
   })
   .then(jsonData => {
-    console.log(jsonData)
 
     setSunData(jsonData.data.results);
     
