@@ -1,28 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 function Loader(props) {
-    // const [data, setData] = useState([]);
+    
     const [loading, setLoading] = useState(undefined);
     const [completed, setCompleted] = useState(undefined);
-
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         fetch("https://jsonplaceholder.typicode.com/posts")
-    //             .then((response) => response.json())
-    //             .then((json) => {
-    //                 // setData(json);
-    //                 // console.log(data)
-    //                 setloading(true);
-    //                 setTimeout(() => {
-    //                     setcompleted(true);
-    //                 }, 3000);
-    //             });
-    //     }, 4000);
-    // }, []);
-
-
-
-    // USEEFFECT for pageload?
 
     useEffect(()=> {
         

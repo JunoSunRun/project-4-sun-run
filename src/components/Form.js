@@ -95,7 +95,7 @@ const Form = (props) => {
               {
                 sunOption === 'sunset' 
                 ?<>
-                  <label htmlFor="runTime">Length of Run {run ? '✓' :null}</label>
+                  <label htmlFor="runTime">Length of Run (minutes){run ? '✓' :null}</label>
                   <input onChange={handleRunTime} type="number" name="runTime" min="0"  id="runTime" value={run} step="5"/>
                 </>
                 :null

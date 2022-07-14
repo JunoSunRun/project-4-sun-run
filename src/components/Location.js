@@ -28,7 +28,7 @@ const Location = (props) => {
   const makeLocationCall = (e) => {
     e.preventDefault();
     axios({
-      url: 'http://api.positionstack.com/v1/forward',
+      url: '/api/',
       params: {
         access_key: '57c7fafe4d4cd9ab9aaf1450c00060fa',
         query: searchTerm,
@@ -52,8 +52,6 @@ const Location = (props) => {
             return (
               <option
                 key={object.latitude}
-// ! look into how this is converting into a string (Done - creating an actual string for value instead of an array that magically turns into a string)
-                // value={[object.latitude, object.longitude]}
                 value={`${object.latitude}, ${object.longitude}`}
                 id={object.label}
               >

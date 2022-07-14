@@ -13,6 +13,15 @@ const Results = (props) => {
 
     const displayDate = new Date(selectedDate.replaceAll(`-`, `/`)).toLocaleString('en-US', {month: "short", day:"numeric"})
 
+    const dateOrdinal = (date) => {
+      let ordinal = date.slice(4)
+      if ((ordinal > 3 && ordinal < 21) || (ordinal > 23)) {return `${date}th`;}
+      else if (ordinal === "1" || ordinal === "21") {return `${date}st`;}
+      else if (ordinal === "2" || ordinal === "22") {return `${date}nd`;}
+      else if (ordinal === "3" || ordinal === "23"){return `${date}rd`;}
+      else return null
+    }
+
   // to calculate how many minutes user missed sunset 
  
     let overTime=[(today-sunTime)/1000/60,'minutes'];
@@ -41,13 +50,13 @@ const Results = (props) => {
             
             //  Check for valid date and confirm sunrise hasn't past
               !isNaN(sunDateObject) &&  today<sunTime && sunOption === 'sunrise'?
-              <p>Sunrise on {displayDate} will be: <span className="displayDate">{sunDateObject.toLocaleString('en-US', {timeStyle: 'short' } )}</span></p>
+              <p>Sunrise on {dateOrdinal(displayDate)} will be: <span className="displayDate">{sunDateObject.toLocaleString('en-US', {timeStyle: 'short' } )}</span></p>
               :!isNaN(sunDateObject)&&today>sunTime && sunOption && today>sunTime?
               <p>You missed the {sunOption} by {overTime[0].toFixed(1)} {overTime[1]}</p>
 
             // check for valid date, confirm sunset hasnt past and user has enough time for run
               :!isNaN(sunDateObject) && today<sunTime && sunOption === 'sunset' && (userRunTime * 1000 * 60) < diff?
-              <p>For a {userRunTime} minute run, leave at <span className="displayDate">{whatTimeToLeave}</span> to get home before sunset</p>
+              <p>For a {userRunTime} minute run on {dateOrdinal(displayDate)}, leave at <span className="displayDate">{whatTimeToLeave}</span> to get home before sunset</p>
     
             // check if the user's run time is enough time to return before sunset
               :!isNaN(sunDateObject) && sunOption === 'sunset' && (userRunTime*1000*60)>diff ?
