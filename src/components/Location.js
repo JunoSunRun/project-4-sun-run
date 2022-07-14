@@ -28,7 +28,7 @@ const Location = (props) => {
   const makeLocationCall = (e) => {
     e.preventDefault();
     axios({
-      url: 'http://api.positionstack.com/v1/forward',
+      url: '/api/',
       params: {
         access_key: '57c7fafe4d4cd9ab9aaf1450c00060fa',
         query: searchTerm,
